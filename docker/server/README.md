@@ -2,7 +2,7 @@
 
 ```bash
 # Get the project & cd into it
-git clone https://github.com/anthonydevelops/osseus
+git clone https://github.com/ligato/osseus
 cd /osseus
 git checkout grpc-server
 

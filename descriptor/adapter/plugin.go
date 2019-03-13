@@ -5,7 +5,7 @@ package adapter
 import (
 	"github.com/gogo/protobuf/proto"
 	. "github.com/ligato/vpp-agent/plugins/kvscheduler/api"
-	"github.com/ligato/osseus/plugins/generator/model"
+	"model"
 )
 
 ////////// type-safe key-value pair with metadata //////////

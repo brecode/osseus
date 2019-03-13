@@ -18,7 +18,7 @@ go get -u github.com/golang/protobuf/protoc-gen-go
 # checkout agent code
 mkdir -p $GOPATH/src/github.com/dev
 cd $GOPATH/src/github.com/dev
-git clone https://github.com/anthonydevelops/osseus.git
+git clone https://github.com/ligato/osseus.git
 
 # build the agent
 cd $GOPATH/src/github.com/dev/osseus

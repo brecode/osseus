@@ -15,7 +15,10 @@
 package generator
 
 import (
-	"github.com/ligato/cn-infra/db/keyval/etcd"
+	"log"
+
+	"github.com/ligato/cn-infra/logging"
+	"github.com/ligato/vpp-agent/plugins/kvscheduler"
 )
 
 // DefaultPlugin is a default instance of Plugin.
@@ -23,20 +26,23 @@ var DefaultPlugin = *NewPlugin()
 
 // NewPlugin creates a new Plugin with the provided Options.
 func NewPlugin(opts ...Option) *Plugin {
-	p := &Plugin{
-		watchCh: make(chan string),
-	}
 
-	p.SetName("generator")
-	p.KVStore = &etcd.DefaultPlugin
+	p := &Plugin{}
+
+	p.PluginName = "generator-plugin"
+	p.KVScheduler = &kvscheduler.DefaultPlugin
 
 	for _, o := range opts {
 		o(p)
 	}
 
-	p.Setup()
+	if p.Deps.Log == nil {
+		log.Println(p.String())
+		p.Deps.Log = logging.ForPlugin(p.String())
+	}
 
 	return p
+
 }
 
 // Option is a function that can be used in NewPlugin to customize Plugin.

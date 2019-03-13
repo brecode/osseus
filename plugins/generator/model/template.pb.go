@@ -3,12 +3,10 @@
 
 package model
 
-import (
-	fmt "fmt"
-	_ "github.com/gogo/protobuf/gogoproto"
-	proto "github.com/gogo/protobuf/proto"
-	math "math"
-)
+import proto "github.com/gogo/protobuf/proto"
+import fmt "fmt"
+import math "math"
+import _ "github.com/gogo/protobuf/gogoproto"
 
 // Reference imports to suppress errors if they are not otherwise used.
 var _ = proto.Marshal
@@ -34,7 +32,7 @@ func (m *Template) Reset()         { *m = Template{} }
 func (m *Template) String() string { return proto.CompactTextString(m) }
 func (*Template) ProtoMessage()    {}
 func (*Template) Descriptor() ([]byte, []int) {
-	return fileDescriptor_b1b68e1b5f001c74, []int{0}
+	return fileDescriptor_template_a8e4683b8ccb9d8f, []int{0}
 }
 func (m *Template) XXX_Unmarshal(b []byte) error {
 	return xxx_messageInfo_Template.Unmarshal(m, b)
@@ -42,8 +40,8 @@ func (m *Template) XXX_Unmarshal(b []byte) error {
 func (m *Template) XXX_Marshal(b []byte, deterministic bool) ([]byte, error) {
 	return xxx_messageInfo_Template.Marshal(b, m, deterministic)
 }
-func (m *Template) XXX_Merge(src proto.Message) {
-	xxx_messageInfo_Template.Merge(m, src)
+func (dst *Template) XXX_Merge(src proto.Message) {
+	xxx_messageInfo_Template.Merge(dst, src)
 }
 func (m *Template) XXX_Size() int {
 	return xxx_messageInfo_Template.Size(m)
@@ -75,9 +73,9 @@ func init() {
 	proto.RegisterType((*Template)(nil), "model.Template")
 }
 
-func init() { proto.RegisterFile("template.proto", fileDescriptor_b1b68e1b5f001c74) }
+func init() { proto.RegisterFile("template.proto", fileDescriptor_template_a8e4683b8ccb9d8f) }
 
-var fileDescriptor_b1b68e1b5f001c74 = []byte{
+var fileDescriptor_template_a8e4683b8ccb9d8f = []byte{
 	// 128 bytes of a gzipped FileDescriptorProto
 	0x1f, 0x8b, 0x08, 0x00, 0x00, 0x00, 0x00, 0x00, 0x02, 0xff, 0xe2, 0xe2, 0x2b, 0x49, 0xcd, 0x2d,
 	0xc8, 0x49, 0x2c, 0x49, 0xd5, 0x2b, 0x28, 0xca, 0x2f, 0xc9, 0x17, 0x62, 0xcd, 0xcd, 0x4f, 0x49,

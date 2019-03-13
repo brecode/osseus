@@ -19,9 +19,6 @@ import (
 
 	"github.com/ligato/vpp-agent/plugins/orchestrator"
 
-	"github.com/ligato/vpp-agent/plugins/kvscheduler"
-
-	"github.com/anthonydevelops/osseus/plugins/generator"
 	"github.com/ligato/cn-infra/agent"
 	"github.com/ligato/cn-infra/datasync"
 	"github.com/ligato/cn-infra/datasync/kvdbsync"
@@ -31,6 +28,7 @@ import (
 	"github.com/ligato/cn-infra/logging"
 	"github.com/ligato/cn-infra/logging/logmanager"
 	log "github.com/ligato/cn-infra/logging/logrus"
+	"github.com/ligato/osseus/plugins/generator"
 )
 
 // OsseusAgent is a struct holding internal data for the StrongSwan VPP Agent
@@ -39,7 +37,6 @@ type OsseusAgent struct {
 	Generator  *generator.Plugin
 
 	Orchestrator *orchestrator.Plugin
-	Scheduler    *kvscheduler.Scheduler
 	ETCDDataSync *kvdbsync.Plugin
 }
 
@@ -58,12 +55,10 @@ func New() *OsseusAgent {
 		etcdDataSync,
 	}
 	orchestrator.DefaultPlugin.Watcher = watchers
-	generator.DefaultPlugin.Scheduler = &kvscheduler.DefaultPlugin
 
 	return &OsseusAgent{
 		LogManager:   &logmanager.DefaultPlugin,
 		Orchestrator: &orchestrator.DefaultPlugin,
-		Scheduler:    &kvscheduler.DefaultPlugin,
 		ETCDDataSync: etcdDataSync,
 		Generator:    &generator.DefaultPlugin,
 	}
