@@ -17,6 +17,7 @@ package main
 import (
 	"os"
 
+	"github.com/ligato/cn-infra/datasync/resync"
 	"github.com/ligato/vpp-agent/plugins/orchestrator"
 
 	"github.com/ligato/cn-infra/agent"
@@ -71,6 +72,7 @@ func (oa *OsseusAgent) Init() error {
 
 // AfterInit normally executes resync, nothing for now.
 func (oa *OsseusAgent) AfterInit() error {
+	resync.DefaultPlugin.DoResync()
 	return nil
 }
 
